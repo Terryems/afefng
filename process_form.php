@@ -11,8 +11,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Set your Gmail SMTP settings
     $smtpHost = "smtp.gmail.com";
-    $smtpUsername = "emmanuelsimona@gmail.com"; // Replace with your Gmail email address
-    $smtpPassword = "Terr8919@&"; // Replace with your Gmail password
+    $smtpUsername = ""; // Replace with your Gmail email address
+    $smtpPassword = ""; // Replace with your Gmail password
     $smtpPort = 587; // Use 587 for TLS, 465 for SSL
 
     // Additional headers
