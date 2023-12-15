@@ -29,11 +29,13 @@
 <link rel="stylesheet" href="css/styles.css"/>
 <!-- Font Awesome -->
 <link href="font/css/font-awesome.min.css" rel="stylesheet">
+
 <!-- DarkMode  -->
 <style>
 	/* Dark mode styles */
-	body.dark-mode {
+	body.dark-mode .navbar.dar {
 		background-color: #343a40;
+		/* background: black; */
 		color: #fff;
 	}
 
@@ -43,10 +45,20 @@
 
 	.navbar-dark .navbar-toggler-icon {
 		background-color: #fff;
+		/* .header.navbar */
 	}
 
 	/* Add more styles for other Bootstrap components as needed */
 </style>
+<script>
+	// JavaScript to toggle dark mode
+	function toggleDarkMode() {
+		const body = document.body;
+		body.classList.toggle('dark-mode');
+		const navbar = document.body;
+		body.classList.toggle('dark-mode');
+	}
+</script>
 </head>
 
 <body>
@@ -406,7 +418,7 @@
     <!-- Image Hover Block -->
     <div class="member-img" data-toggle="tooltip" title="Click to view biography" onclick="openJoyModal()">
         <!-- Image with a data-target attribute for the modal -->
-        <img class="img-responsive" src="images/joy.jpg" alt="">
+        <img class="img-responsive" src="images/joy.png" alt="">
     </div>
     <!-- Member Details -->
     <h3>Joy Ibejekwe</h3>
@@ -450,7 +462,7 @@
 											<!-- Image Hover Block -->
 											<div class="member-img">
 												<!-- Image  -->
-												<img class="img-responsive" src="images/gabriel.jpg" alt="Gabriel"> 
+												<img class="img-responsive" src="images/gabriel.png" alt="Gabriel"> 
 											</div>
 											<!-- Member Details -->
 											<h3>Gabriel Shekwagu</h3>
@@ -470,7 +482,7 @@
 											<!-- Image Hover Block -->
 											<div class="member-img">
 												<!-- Image  -->
-												<img class="img-responsive" src="images/joseph.jpg" alt="Joseph_ekwo"> 
+												<img class="img-responsive" src="images/joseph.png" alt="Joseph_ekwo"> 
 
 
 
@@ -501,7 +513,7 @@
 											<!-- Image Hover Block -->
 											<div class="member-img">
 												<!-- Image  -->
-												<img class="img-responsive" src="images/emmanuel.jpg" alt=""> 
+												<img class="img-responsive" src="images/emmanuel.png" alt=""> 
 											</div>
 											<!-- Member Details -->
 											<h3>Emmanuel Aidoko</h3>
@@ -521,7 +533,7 @@
 											<!-- Image Hover Block -->
 											<div class="member-img">
 												<!-- Image  -->
-												<img class="img-responsive" src="images/grace.jpg" alt=""> 
+												<img class="img-responsive" src="images/grace.png" alt=""> 
 											</div>
 											<!-- Member Details -->
 											<h3>Grace Ogah</h3>

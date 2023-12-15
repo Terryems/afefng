@@ -248,9 +248,30 @@ a {
 
 
 
+
+    	/* Dark mode styles */
+	body.dark-mode {
+		background-color: #343a40;
+		/* background: black; */
+		color: #fff;
+	}
+
+	.navbar-dark .navbar-nav .nav-link  {
+		color: #fff;
+	}
+
+	.navbar-dark .navbar-toggler-icon {
+		background-color: #fff;
+		/* .header.navbar */
+	}
+
+
+
+
+
 .header .navbar {
     margin: 0;
-    background: #fff;
+    background-color: #fff;
     border: 0;
 }
 
