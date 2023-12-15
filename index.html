@@ -595,14 +595,15 @@
 											<input name="phone" class="form-control required digits" type="tel" id="phone" size="30" value="" placeholder="Enter email phone" title="Please enter a valid phone number (at least 10 characters)">
 										</div>
 									</div>
+							
 									<div class="col-sm-4">
 										<div class="form-group">
 											<label for="comments">Comments</label>
 											<textarea name="comment" class="form-control" id="comments" cols="3" rows="5" placeholder="Enter your message…" title="Please enter your message (at least 10 characters)"></textarea>
-										</div>	
-										<button name="submit" type="submit" class="btn btn-lg btn-primary" id="submit"> Submit</button>		
-										<div class="result"></div>										
-									</div>                        									
+										</div>    
+										<button type="button" class="btn btn-lg btn-primary" id="submit" onclick="validateAndSubmit()">Submit</button>       
+										<div class="result"></div>                                        
+									</div>                                     
 								</form>
 							</div>
         </div>
@@ -695,6 +696,40 @@
 	function toggleDarkMode() {
 		const body = document.body;
 		body.classList.toggle('dark-mode');
+	}
+</script>
+<script>
+	function validateAndSubmit() {
+		// Your validation logic here
+		var name = document.getElementById('name').value;
+		var email = document.getElementById('email').value;
+
+		if (name.trim() === '' || email.trim() === '') {
+			alert('Name and Email are required');
+			return;
+		}
+
+		// If all validations pass, submit the form asynchronously
+		submitForm();
+	}
+
+	function submitForm() {
+		var form = document.getElementById('contactfrm');
+		var formData = new FormData(form);
+
+		var xhr = new XMLHttpRequest();
+		xhr.open('POST', form.action, true);
+		xhr.onload = function() {
+			if (xhr.status === 200) {
+				// Successful response, you can handle it here
+				alert('Form submitted successfully!');
+			} else {
+				// Error handling, you can display an error message or take other actions
+				alert('Error submitting form. Please try again later.');
+			}
+		};
+		
+		xhr.send(formData);
 	}
 </script>
 </body>
