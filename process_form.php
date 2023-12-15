@@ -9,17 +9,39 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $subject = "New Contact Form Submission";
     $message = "Name: $name\nEmail: $email\nPhone: $phone\nMessage: $comment";
 
+    // Set your Gmail SMTP settings
+    $smtpHost = "smtp.gmail.com";
+    $smtpUsername = "emmanuelsimona@gmail.com"; // Replace with your Gmail email address
+    $smtpPassword = "Terr8919@&"; // Replace with your Gmail password
+    $smtpPort = 587; // Use 587 for TLS, 465 for SSL
+
     // Additional headers
     $headers = "From: $email";
 
-    // Send email
-    mail($to, $subject, $message, $headers);
+    // Set up PHPMailer (make sure to include the PHPMailer library)
+    require 'path/to/PHPMailer/PHPMailerAutoload.php';
 
-    // You can also send a response back to the client
-    echo "Email sent successfully!";
+    $mail = new PHPMailer;
+    $mail->isSMTP();
+    $mail->Host = $smtpHost;
+    $mail->SMTPAuth = true;
+    $mail->Username = $smtpUsername;
+    $mail->Password = $smtpPassword;
+    $mail->SMTPSecure = 'tls'; // Use 'tls' for TLS, 'ssl' for SSL
+    $mail->Port = $smtpPort;
+
+    $mail->setFrom($email);
+    $mail->addAddress($to);
+    $mail->Subject = $subject;
+    $mail->Body = $message;
+
+    if ($mail->send()) {
+        echo "Email sent successfully!";
+    } else {
+        echo "Error submitting form. Please try again later. Error: " . $mail->ErrorInfo;
+    }
 } else {
     // Redirect or handle the error as needed
     echo "Invalid request";
 }
 ?>
-<!-- chmod -->
