@@ -975,3 +975,8 @@ footer {
         margin: 0 0 23px 5px;
     }
 }
+.tooltip-inner{
+    /* font-weight: bold; */
+    font-size: 15px;
+
+}
