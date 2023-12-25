@@ -29,36 +29,10 @@
 <link rel="stylesheet" href="css/styles.css"/>
 <!-- Font Awesome -->
 <link href="font/css/font-awesome.min.css" rel="stylesheet">
+<!-- MAILJS -->
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 
-<!-- DarkMode  -->
-<style>
-	/* Dark mode styles */
-	body.dark-mode .navbar.dar {
-		background-color: #343a40;
-		/* background: black; */
-		color: #fff;
-	}
 
-	.navbar-dark .navbar-nav .nav-link {
-		color: #fff;
-	}
-
-	.navbar-dark .navbar-toggler-icon {
-		background-color: #fff;
-		/* .header.navbar */
-	}
-
-	/* Add more styles for other Bootstrap components as needed */
-</style>
-<script>
-	// JavaScript to toggle dark mode
-	function toggleDarkMode() {
-		const body = document.body;
-		body.classList.toggle('dark-mode');
-		const navbar = document.body;
-		body.classList.toggle('dark-mode');
-	}
-</script>
 </head>
 
 <body>
@@ -701,32 +675,29 @@
 										07065446033
 									</address>
 								</div>
-								<form method="post" action="process_form.php" id="contactfrm" role="form">
-
-									<div class="col-sm-4"> 
+								<form method="post" id="contactfrm" role="form">
+									<div class="col-sm-4">
 										<div class="form-group">
 											<label for="name">Name</label>
-											<input type="text" class="form-control" name="name" id="name" placeholder="Enter name" title="Please enter your name (at least 2 characters)">
+											<input type="text" class="form-control" name="name" id="name" placeholder="Enter name"
+												   title="Please enter your name (at least 2 characters)">
 										</div>
 										<div class="form-group">
 											<label for="email">Email</label>
-											<input type="email" class="form-control" name="email" id="email" placeholder="Enter email" title="Please enter a valid email address">
+											<input type="email" class="form-control" name="email" id="email" placeholder="Enter email"
+												   title="Please enter a valid email address">
 										</div>
-										<div class="form-group">
-											<label for="phone">Phone</label>
-											<input name="phone" class="form-control required digits" type="tel" id="phone" size="30" value="" placeholder="Enter email phone" title="Please enter a valid phone number (at least 10 characters)">
-										</div>
-									</div>
-							
-									<div class="col-sm-4">
 										<div class="form-group">
 											<label for="comments">Comments</label>
-											<textarea name="comment" class="form-control" id="comments" cols="3" rows="5" placeholder="Enter your message…" title="Please enter your message (at least 10 characters)"></textarea>
-										</div>    
-										<button type="button" class="btn btn-lg btn-primary" id="submit" onclick="validateAndSubmit()">Submit</button>       
-										<div class="result"></div>                                        
-									</div>                                     
+											<textarea name="comment" class="form-control" id="comments" cols="3" rows="5"
+													  placeholder="Enter your message…" title="Please enter your message (at least 10 characters)"></textarea>
+										</div>
+										<button type="submit" class="btn btn-lg btn-primary">Submit</button>
+										<div id="result" class="result"></div>
+									</div>
 								</form>
+					
+								
 							</div>
         </div>
 	<!--/.container-->
@@ -739,8 +710,8 @@
             <a href="#" class="logoDark"><h4>AFEF</h4></a>
             
             <ul class="socialIcons">
-              <li><a href="facebook.com/afefnigeria" class="fbIcon" target="_blank"><i class="fa fa-facebook-square fa-lg""></i></a> Facebook</li>
-              <li><a href="x.com/afefnigeria" class="fbIcon" target="_blank"><i class="fa fa-twitter-square fa-lg""></i></a> X</li>
+              <li><a href="facebook.com/afefnigeria" class="fbIcon" target="_blank"><i class="fa fa-facebook-square fa-lg"></i></a> Facebook</li>
+              <li><a href="x.com/afefnigeria" class="fbIcon" target="_blank"><i class="fa fa-twitter-square fa-lg"></i></a> X</li>
 			  
 
             </ul>
@@ -778,7 +749,6 @@
 </section>
     <a href="#top" class="topHome"><i class="fa fa-chevron-up fa-2x"></i></a>
 
-<!--[if lte IE 8]><script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script><![endif]-->
 
 
 <script src="js/jquery-1.8.2.min.js" type="text/javascript"></script>    
@@ -788,124 +758,51 @@
 <script src="js/jquery.nav.js" type="text/javascript"></script>
 <script src="js/jquery.cslider.js" type="text/javascript"></script> 
 <script src="js/custom.js" type="text/javascript"></script>
-<script>
-	// JavaScript code to update the copyright year
-	const currentYear = new Date().getFullYear();
-	document.getElementById('copyright-year').textContent = currentYear;
-</script>
 
 <script>
-  function openModal() {
-    document.getElementById('myModal').style.display = 'flex';
-  }
+    emailjs.init("70JxiRuQ6GgmtcLbb"); // Replace with your actual Public Key
 
-  function closeModal() {
-    document.getElementById('myModal').style.display = 'none';
-  }
-</script>
+const form = document.getElementById('contactfrm');
 
+form.addEventListener('submit', (event) => {
+    event.preventDefault();
+	// Prevent default form submission
 
-<script>
-    // Function to open the modal
-    function opengabModal() {
-        $('#gabModal').modal('show');
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const comment = document.getElementById('comments').value;
+
+    sendEmail(name, email, comment);
+});
+
+function sendEmail(name, email, comment) {
+    const SERVICE_ID = 'service_wygh5lk';
+    const TEMPLATE_ID = 'template_d2cqgb4';
+
+    const templateParams = {
+        from_name: name,
+        from_email: email,
+        comments: comment
+    };
+
+    try {
+        emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams)
+            .then((response) => {
+                console.log('Email sent successfully:', response);
+                displaySuccessMessage();
+            })
+            .catch((error) => {
+                console.error('Error sending email:', error);
+                displayErrorMessage();
+            });
+    } catch (error) {
+        console.error('Unexpected error:', error);
+        displayErrorMessage();
     }
-    
-    // Enable Bootstrap tooltips
-    $(function () {
-        $('[data-toggle="tooltip"]').tooltip();
-    });
+}
+
+// ... (rest of the code for displaySuccessMessage and displayErrorMessage)
+
 </script>
-
-<script>
-    // Function to open the modal
-    function openjoeModal() {
-        $('#joeModal').modal('show');
-    }
-    
-    // Enable Bootstrap tooltips
-    $(function () {
-        $('[data-toggle="tooltip"]').tooltip();
-    });
-</script>
-<script>
-    // Function to open the modal
-    function openemsModal() {
-        $('#emsModal').modal('show');
-    }
-    
-    // Enable Bootstrap tooltips
-    $(function () {
-        $('[data-toggle="tooltip"]').tooltip();
-    });
-</script>
-
-<script>
-    // Function to open the modal
-    function opengraceModal() {
-        $('#graceModal').modal('show');
-    }
-    
-    // Enable Bootstrap tooltips
-    $(function () {
-        $('[data-toggle="tooltip"]').tooltip();
-    });
-</script>
-<script>
-    // Function to open the modal
-    function openJoyModal() {
-        $('#joyModal').modal('show');
-    }
-    
-    // Enable Bootstrap tooltips
-    $(function () {
-        $('[data-toggle="tooltip"]').tooltip();
-    });
-</script>
-
-
-<script>
-	// JavaScript to toggle dark mode
-	function toggleDarkMode() {
-		const body = document.body;
-		body.classList.toggle('dark-mode');
-	}
-</script>
-
-<script>
-	function validateAndSubmit() {
-		// Your validation logic here
-		var name = document.getElementById('name').value;
-		var email = document.getElementById('email').value;
-
-		if (name.trim() === '' || email.trim() === '') {
-			alert('Name and Email are required');
-			return;
-		}
-
-		// If all validations pass, submit the form asynchronously
-		submitForm();
-	}
-
-	function submitForm() {
-		var form = document.getElementById('contactfrm');
-		var formData = new FormData(form);
-
-		var xhr = new XMLHttpRequest();
-		xhr.open('POST', form.action, true);
-		xhr.onload = function() {
-			if (xhr.status === 200) {
-				// Successful response, you can handle it here
-				alert('Form submitted successfully!');
-			} else {
-				// Error handling, you can display an error message or take other actions
-				alert('Error submitting form. Please try again later.');
-			}
-		};
-		
-		xhr.send(formData);
-	}
-</script>
-
 </body>
 </html>
