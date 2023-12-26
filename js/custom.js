@@ -167,5 +167,33 @@ $('document').ready(function () {
 
 
 
+    function submitForm() {
+      // Get form values
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const message = document.getElementById('message').value;
+
+      // Update confirmation message
+      
+      document.getElementById('sentEmail').innerText = email;
+      
+      // Hide the form and display the confirmation message
+      document.getElementById('contactForm').style.display = 'none';
+      document.getElementById('confirmationMessage').style.display = 'block';
+    }
+
+    function resetForm() {
+      // Reset form values
+      document.getElementById('contactForm').reset();
+
+      // Display the form and hide the confirmation message
+      document.getElementById('contactForm').style.display = 'block';
+      document.getElementById('confirmationMessage').style.display = 'none';
+    }
+
+
+
+
+
 
     
