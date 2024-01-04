@@ -8,9 +8,12 @@ const app = express();
 const port = 3000;
 
 // Serve static files from the 'styles' folder
-app.use('/nodestyles', express.static('nodestyles'));
+app.use('/css', express.static('css'));
 // Serve static files from the "public" directory
-app.use(express.static('public'));
+
+app.use(express.static('images'));
+app.use(express.static('js'));
+
 
 // Set up middleware to parse form data
 app.use(bodyParser.urlencoded({ extended: true }));
