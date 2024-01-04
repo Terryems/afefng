@@ -7,8 +7,14 @@ const nodemailer = require('nodemailer');
 const app = express();
 const port = 3000;
 
-// Serve static files from the 'styles' folder
-app.use(express.static('nodestyles'));
+// Serve static files from the 'nodestyles' folder
+app.use('/nodestyles', express.static(path.join(__dirname, 'nodestyles')));
+
+// Serve static files from the 'js' folder
+app.use('/js', express.static(path.join(__dirname, 'js')));
+
+// Serve static files from the 'images' folder
+app.use('/images', express.static(path.join(__dirname, 'images')));
 
 // Set up middleware to parse form data
 app.use(bodyParser.urlencoded({ extended: true }));
