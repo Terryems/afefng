@@ -7,6 +7,9 @@ const nodemailer = require('nodemailer');
 const app = express();
 const port = 3000;
 
+// Serve static files from the 'styles' folder
+app.use(express.static('nodestyles'));
+
 // Set up middleware to parse form data
 app.use(bodyParser.urlencoded({ extended: true }));
 
