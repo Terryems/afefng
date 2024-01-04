@@ -8,7 +8,9 @@ const app = express();
 const port = 3000;
 
 // Serve static files from the 'styles' folder
-app.use(express.static('nostyles'));
+app.use('/nodestyles', express.static('nodestyles'));
+// Serve static files from the "public" directory
+app.use(express.static('public'));
 
 // Set up middleware to parse form data
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -60,4 +62,3 @@ app.post('/submit', async (req, res) => {
 app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`);
 });
-
