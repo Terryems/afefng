@@ -5,9 +5,6 @@ Description: This theme is a best responsive web template. It would be great for
 License: Free to use for personal and commercial, but you need to place back link in the bottom of the template.
 */
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,900,500);
-#afef{
-    padding-bottom: 10px;
-}
 
 * {
     margin: 0;
@@ -60,7 +57,6 @@ p {
     font-size: 16px;
     font-weight: 400;
     background: rgba(255,255,255,0.15);
-    /* align-items: center; */
 }
 
     .button-outline:hover {
@@ -170,18 +166,16 @@ a {
     bottom: 40%;
     display: block;
     height: 80px;
-
 }
 
     .carousel-caption h1 {
         font-size: 45px;
         padding: 10px 15px;
-        background: rgba(129, 180, 33, 0.382);
+        background: rgba(128, 180, 33, 0.80);
         color: #FFFFFF;
         text-shadow: none;
         font-weight: bold;
         display: inline-block;
-        border-radius: 35px;
     }
     /*.carousel-caption h1 {
 			background: rgba(0,0,0,0.2);
@@ -198,13 +192,9 @@ a {
 		}*/
     .carousel-caption h3 {
         font-size: 30px;
-        padding: 10px 15px;
-        color: #ffffff;
+        color: #1C4604;
         font-weight: bold;
-        /* text-shadow: #ff0606 1px 1px 1px; */
-        background-color: #6faa0083;
-        border-radius: 35px;
-        display: inline-block;
+        text-shadow: #fff 1px 1px 1px;
     }
 
 .actionPanel {
@@ -249,30 +239,9 @@ a {
 
 
 
-
-    	/* Dark mode styles */
-	body.dark-mode {
-		background-color: #343a40;
-		/* background: black; */
-		color: #fff;
-	}
-
-	.navbar-dark .navbar-nav .nav-link  {
-		color: #fff;
-	}
-
-	.navbar-dark .navbar-toggler-icon {
-		background-color: #fff;
-		/* .header.navbar */
-	}
-
-
-
-
-
 .header .navbar {
     margin: 0;
-    background-color: #fff;
+    background: #fff;
     border: 0;
 }
 
@@ -504,7 +473,7 @@ a {
         height: 42px;
         line-height: 42px;
         background: transparent;
-        /* border: 2px solid #E7EBEF; */
+        border: 2px solid #E7EBEF;
         margin: 0px 5px 0px 0px;
         position: relative;
         display: inline-block;
@@ -975,9 +944,4 @@ footer {
         display: inline-block;
         margin: 0 0 23px 5px;
     }
-}
-.tooltip-inner{
-    /* font-weight: bold; */
-    font-size: 15px;
-
 }
