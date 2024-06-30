@@ -1077,4 +1077,7 @@ footer {
         justify-content: center;
         /* background-color: #000; */
     }
+    #panel2, panel1{
+        color: rgb(133, 125, 125);
+    }
     
