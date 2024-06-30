@@ -1,0 +1,75 @@
+.cont{
+    background-color: blue;
+    height: 300px;
+    width: 100%;   
+    position: relative;
+
+}
+.white{
+    background-color: rgb(255, 0, 0);
+    height: 300px;
+    width: 100%;
+    position: relative;
+    padding: 10px;
+}
+.wide{
+    background-color: rgb(0, 0, 0);
+    height: 200px;
+    width: 200px;
+    border-radius: 5px;
+}
+.left{
+    background-color: rgb(0, 13, 195);
+    width: 95px;
+    height: 90px;
+    position: absolute;
+    top: 220px;
+    border-radius: 5px;
+}
+.right{
+    background-color: blueviolet;
+    width: 95px;
+    height: 90px;
+    position: absolute;
+    top: 220px;
+    left: 114px;
+    border-radius: 5px;
+}
+
+.whitee{
+    background-color: rgb(255, 0, 0);
+    height: 300px;
+    width: 100%;
+    position: relative;
+    padding: 10px;
+    left: 220px;
+    top: -300px;
+}
+.widee{
+    position: absolute;
+    background-color: rgb(0, 0, 0);
+    height: 200px;
+    width: 200px;
+    border-radius: 5px;
+    top: 112px;
+}
+.lefte{
+    position: absolute;
+    background-color: rgb(0, 13, 195);
+    width: 95px;
+    height: 90px;
+    position: absolute;
+    top: 220px;
+    border-radius: 5px;
+    top: 11px;
+}
+.rightt{
+    background-color: blueviolet;
+    width: 95px;
+    height: 90px;
+    position: absolute;
+    top: 220px;
+    left: 114px;
+    border-radius: 5px;
+    top: 11px;
+}

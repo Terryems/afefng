@@ -1,0 +1,23 @@
+
+$(document).ready(function(){
+  $("#flip").click(function(){
+    $("#panel").slideToggle("slow");
+  });
+
+
+  $("#flip1").click(function(){
+    $("#panel1").slideToggle("slow");
+  });
+  
+  $("#flip2").click(function(){
+    $("#panel2").slideToggle("slow");
+  });
+
+
+  // GET REQUEST
+  $("button").click(function(){
+    $.get("https://www.goal.com", function(data, status){
+      alert("Data: " + data + "\nStatus: " + status);
+    });
+  });
+});
