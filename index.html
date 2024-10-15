@@ -602,7 +602,7 @@
 													</address>
 												</div>
 											
-    <form id="contactForm" action="https://formspree.io/f/xrbgglvo" method="POST">
+   <form id="contactForm" action="https://formspree.io/f/xrbgglvo" method="POST">
   <div class="form-group">
     <label for="name">Name:</label>
     <input type="text" class="form-control" id="name" name="name" required>
@@ -643,6 +643,18 @@
         response.json().then(data => {
           if (Object.hasOwn(data, 'errors')) {
             status.innerHTML = data["errors"].map(error => error["message"]).join(", ");
+          } else {
+            status.innerHTML = "Oops! There was a problem submitting your form";
+          }
+        });
+      }
+    }).catch(error => {
+      status.innerHTML = "Oops! There was a problem submitting your form";
+    });
+  }
+
+  form.addEventListener("submit", handleSubmit);
+</script>		
 
 									
 												
